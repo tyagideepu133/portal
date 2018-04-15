@@ -98,7 +98,8 @@ DATABASES = {
         'NAME': 'u305789240_ft001',
         'USER': ' u305789240_r001',
         'PASSWORD': "digiK@001",
-        'HOST': 'sql131.main-hosting.eu'   # Or an IP Address that your DB is hosted o
+        'HOST': 'sql131.main-hosting.eu',
+        'PORT': '', 
     }
 }
 
