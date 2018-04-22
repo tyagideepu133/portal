@@ -31,7 +31,6 @@ class StudentModel(models.Model):
     )
 
     id = models.BigIntegerField(primary_key=True)
-    school = models.ForeignKey(SchoolModel, on_delete=models.CASCADE)
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, null=True)
     first_name = models.CharField(max_length=50, null=False)
     middle_name = models.CharField(max_length=30, null=True)

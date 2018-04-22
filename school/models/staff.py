@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils import timezone
 from django.conf import settings
-from .school import SchoolModel
 from .auth import CustomUser
 
 
@@ -27,6 +26,5 @@ class StaffModel(models.Model):
     date_of_hiring = models.DateField(null=False)
     higest_education = models.CharField(null=False, max_length=20)
     email = models.EmailField(null=False)
-    school = models.ForeignKey(SchoolModel, on_delete=models.CASCADE)
     def __str__(self):
         return str(self.first_name) + " " + str(self.last_name)

@@ -12,8 +12,9 @@ from django.conf import settings
 from .models.school import SchoolModel
 from .models.session import SessionModel, ClassSessionModel, StudentSessionModel, SubjectSessionModel, SubjectTimingModel
 from django.contrib.auth import get_user_model
-
-
+from .models.menu import MainMenu, SubMenu, SchoolMenu
+from .models.security import PermissionModel
+from .models.fee import FeeCategoryModel, FeeBatch, FeePayment, FeeSubCategory, FeeSubCategoryFine
 
 MySpecialAdmin = lambda model: type('SubClass'+model.__name__, (admin.ModelAdmin,), {
     'list_display': [x.name for x in model._meta.fields],
@@ -37,4 +38,13 @@ admin.site.register(ClassSessionModel, MySpecialAdmin(ClassSessionModel))
 admin.site.register(StudentSessionModel, MySpecialAdmin(StudentSessionModel))
 admin.site.register(SubjectSessionModel, MySpecialAdmin(SubjectSessionModel))
 admin.site.register(SubjectTimingModel, MySpecialAdmin(SubjectTimingModel))
+admin.site.register(MainMenu, MySpecialAdmin(MainMenu))
+admin.site.register(SubMenu, MySpecialAdmin(SubMenu))
+admin.site.register(SchoolMenu, MySpecialAdmin(SchoolMenu))
+admin.site.register(PermissionModel, MySpecialAdmin(PermissionModel))
+admin.site.register(FeeCategoryModel, MySpecialAdmin(FeeCategoryModel))
+admin.site.register(FeeSubCategory, MySpecialAdmin(FeeSubCategory))
+admin.site.register(FeeSubCategoryFine, MySpecialAdmin(FeeSubCategoryFine))
+admin.site.register(FeeBatch, MySpecialAdmin(FeeBatch))
+admin.site.register(FeePayment, MySpecialAdmin(FeePayment))
 

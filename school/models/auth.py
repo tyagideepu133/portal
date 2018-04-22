@@ -7,14 +7,19 @@ from django.contrib.auth.base_user import AbstractBaseUser
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
-
+from .school import SchoolModel
+from .security import PermissionModel
 
 #completed
 # admin
 class RoleModel(models.Model):
     id = models.PositiveSmallIntegerField(primary_key=True)
     role = models.CharField(max_length=20, null=False)
-    
+    school = models.ForeignKey(SchoolModel, on_delete=models.CASCADE)
+    permission = models.ManyToManyField(PermissionModel)
+
+    def get_permission(self):
+        return self.permission
 
     def __str__(self):
         return self.role
@@ -56,6 +61,7 @@ class CustomUser(AbstractBaseUser):
     verified = models.BooleanField(default=False)
     username = models.CharField(_('username'), max_length=30, unique=True)
     roles = models.ManyToManyField(RoleModel)
+    school = models.ForeignKey(SchoolModel, on_delete=models.CASCADE)
 
     objects = UserManager()
 
