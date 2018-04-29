@@ -98,7 +98,7 @@ DATABASES = {
         'NAME': 'u305789240_ft001',
         'USER': 'u305789240_r001',
         'PASSWORD': 'digiK@001',
-        'HOST': 'localhost',
+        'HOST': 'sql131.main-hosting.eu',
         'PORT': '3306', 
         'CONN_MAX_AGE': 3600,
     }
